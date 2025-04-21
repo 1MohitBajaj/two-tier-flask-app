@@ -41,5 +41,25 @@ pipeline{
             }
         }
     }
-    
+
+post {
+    success{
+        script {
+            emailtext from: "mohitknight956@gmail.com",
+            subject: "Demo app has been updated and deployed successully",
+            body: "Build Successful!",
+          to: 'mohitknight956@gmail.com',
+          mimeType: 'text/html'
+        }
+    }
+    failure {
+        script {
+            emailtext from: "mohitknight956@gmail.com",
+            subject: "Demo app has been updated but it failed ",
+            body: "Build Successful!",
+          to: 'mohitknight956@gmail.com',
+          mimeType: 'text/html'
+        }
+    }
+}  
 } 
